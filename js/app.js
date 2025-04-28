@@ -1,19 +1,15 @@
 function comprar() {
-    let tipo = document.getElementById('tipo-ingresso');
-    let qtd = document.getElementById('qtd').value;
+    const tipo = document.getElementById('tipo-ingresso').value;
+    const qtd = parseInt(document.getElementById('qtd').value, 10);
 
-    if (tipo.value == 'pista') {
-        comprarPista(qtd);
-        }
-}
-
-function comprarPista(qtd) {
-    let qtdPista = parseInt(document.getElementById('qtd-pista').textContent);
-    if (qtd > qtdPista) {
-        alert('Quantidade indisponível para tipo pista');
-    } else {
-        qtdPista = qtdPista - qtd;
-        document.getElementById('qtd-pista').textContent = qtdPista;
-        alert('Compra realizada com sucesso!');
+    if (isNaN(qtd) || qtd <= 0) {
+        alert('Por favor, insira uma quantidade válida.');
+        return;
     }
+
+    const mapaIngressos = {
+        inferior: 'qtd-inferior',
+        superior: 'qtd-superior',
+        pista: 'qtd-pista'
+    };
 }
