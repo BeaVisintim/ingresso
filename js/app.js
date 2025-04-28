@@ -12,4 +12,11 @@ function comprar() {
         superior: 'qtd-superior',
         pista: 'qtd-pista'
     };
+    
+    const spanId = mapaIngressos[tipo];
+
+    if (!spanId) {
+        alert('Tipo de ingresso inválido.');
+        return;
+    }
 }
